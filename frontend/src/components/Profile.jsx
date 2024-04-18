@@ -1,83 +1,3 @@
-
-
-// import React, { useState, useEffect } from "react";
-// import axios from "axios";
-
-// function Profile({refemail}) {
-//   const [checkoutProducts, setCheckoutProducts] = useState([]);
-
-//   const fetchCheckoutProducts = async () => {
-//     try {
-//       const response = await axios.get("http://localhost:3001/api/cart");
-//       setCheckoutProducts(response.data);
-    
-//     } catch (error) {
-//       console.error("Error fetching data:", error);
-//     }
-//   };
-
-//   useEffect(() => {
-//     fetchCheckoutProducts();
-//   }, []);
-
-//   const getStatusIcon = (status) => {
-//     switch (status) {
-//       case "Order Received":
-//         return "🛒"; // Icon representing order received
-//       case "Processing":
-//         return "⏳"; // Icon representing processing
-//       case "Shipped":
-//         return "🚚"; // Icon representing shipped
-//       case "Out for Delivery":
-//         return "📦"; // Icon representing out for delivery
-//       case "Delivered":
-//         return "✅"; // Icon representing delivered
-//       default:
-//         return "";
-//     }
-//   };
-
-//   return (
-//     <div>
-//       <h1>Profile Page</h1>
-//       <div className="space-y-5">
-//       <div className="w-3/12 pb-8 mx-auto flex flex-col justify-center items-center border-[3px] rounded-lg ">
-//         <div className="w-40">
-//           <img src="../../public/Default-removebg-preview.png" alt="" />
-//         </div>
-//         <div className="text-left">
-//           <h5 className="text-lg font-semibold">Pranav Patil</h5>
-//           <p className="font-semibold text-gray-700">Waranagar , Kolhapur</p>
-//           <p>Maharashatra</p>
-//         </div>
-//       </div>
-      
-     
-//       <table className="table-fixed w-full">
-//         <thead>
-//           <tr className="border-[3px]">
-//             <th className="border-[3px]" >Product</th>
-//             <th>Status</th>
-//           </tr>
-//         </thead>
-//         <tbody>
-//           {checkoutProducts.map((product) => (
-//             <tr key={product._id} className="border-2">
-//               <td className="border-2">{product.title}</td>
-//               <td>
-//                 {getStatusIcon(product.status)} {product.status}
-//               </td>
-//             </tr>
-//           ))}
-//         </tbody>
-//       </table>
-//       </div>
-//     </div>
-//   );
-// }
-
-// export default Profile;
-
 import React, { useState, useEffect } from "react";
 import {Link , useNavigate} from 'react-router-dom'
 import axios from "axios";
@@ -116,15 +36,15 @@ function Profile({ refemail }) {
   const getStatusIcon = (status) => {
     switch (status) {
       case "Order Received":
-        return "🛒"; // Icon representing order received
+        return "🛒"; 
       case "Processing":
-        return "⏳"; // Icon representing processing
+        return "⏳"; 
       case "Shipped":
-        return "🚚"; // Icon representing shipped
+        return "🚚"; 
       case "Out for Delivery":
-        return "📦"; // Icon representing out for delivery
+        return "📦"; 
       case "Delivered":
-        return "✅"; // Icon representing delivered
+        return "✅"; 
       default:
         return "";
     }

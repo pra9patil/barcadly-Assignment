@@ -9,7 +9,7 @@ function Register() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Add your form submission logic here
+   
     axios.post('http://localhost:3001/api/register' , {name , email , password})
     .then(result => {console.log(result)
             navigate("/login")})

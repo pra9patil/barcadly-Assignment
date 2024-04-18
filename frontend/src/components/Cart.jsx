@@ -12,12 +12,11 @@ function Cart({ cart, setCart , refemail }) {
 
   const handleCheckout = async () => {
     try {
-      // Make a POST request to the backend endpoint
+     
       await axios.post('http://localhost:3001/api/checkout', { cart });
-      // Clear the cart
-      // console.log(refemail)
+     
       setCart([]);
-      // Set checkout successful state
+      
       setIsCheckoutSuccessful(true);
     } catch (error) {
       console.error('Error during checkout:', error);
@@ -30,7 +29,7 @@ function Cart({ cart, setCart , refemail }) {
     userEmail: refemail
   }));
 
-  // Render an empty page if checkout is successful
+
   if (isCheckoutSuccessful) {
     return <div>Checkout successful! Your cart is now empty.</div>;
   }

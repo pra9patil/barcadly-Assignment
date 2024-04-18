@@ -8,7 +8,6 @@ function Login({setIsLoggedIn ,setRefemail}) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Add your form submission logic here
     axios.post('http://localhost:3001/api/login' , { email , password})
     .then(result => {console.log(result)
            if(result.data === "success")
