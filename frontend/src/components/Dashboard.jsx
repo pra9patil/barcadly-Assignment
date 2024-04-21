@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-function AdminPage({ setIsLoggedIn }) {
+function AdminPage({ setIsAdminLoggedIn }) {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {

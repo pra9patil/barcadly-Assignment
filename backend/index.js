@@ -1,6 +1,8 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const register = require('./models/register'); 
+const Admin = require('./models/Admin'); 
+
 const cors = require('cors');
 
 const app = express();
@@ -79,6 +81,26 @@ app.post('/api/register', (req, res) => {
 app.post('/api/login', (req, res) => {
   const { email, password } = req.body;
   register.findOne({ email: email })
+    .then(user => {
+      if (user) {
+        if (user.password === password) {
+          res.json("success");
+        } else {
+          res.json("Password is incorrect");
+        }
+      } else {
+        res.json("Email not found");
+      }
+    })
+    .catch(error => {
+      console.error(error);
+      res.status(500).json("Internal Server Error");
+    });
+});
+
+app.post('/api/admin', (req, res) => {
+  const { email, password } = req.body;
+  Admin.findOne({ email: email })
     .then(user => {
       if (user) {
         if (user.password === password) {

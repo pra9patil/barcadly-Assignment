@@ -1,12 +1,12 @@
 import React from "react";
 import { Route, Navigate } from "react-router-dom";
 
-const PrivateRoute = ({isLoggedIn , children}) => {
-    if(isLoggedIn){
+const PrivateRoute = ({isAdminLoggedIn , children}) => {
+    if(isAdminLoggedIn){
       return children;
     }
     else{
-      return <Navigate to="/login" replace />;
+      return <Navigate to="/admin" replace />;
     }
 };
 

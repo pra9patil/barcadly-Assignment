@@ -6,9 +6,10 @@ import Navbar from "./components/Navbar";
 import Cart from "./components/Cart";
 import Profile from "./components/Profile";
 import Login from "./components/Login";
+import Adlogin from "./components/Adlogin";
 import Register from "./components/Register";
-import Admin from "./components/Admin";
-import Private from "./components/PrivateRoute";
+import Dashboard from "./components/Dashboard";
+import Privateadmin from "./components/Privateadmin";
 import PrivateRoute from "./components/PrivateRoute";
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
   const [cart, setCart] = useState([]);
   const [warning, setWarning] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isAdminLoggedIn, setIsAdminLoggedIn] = useState(false);
   const [refemail , setRefemail] = useState('');
  
   const addToCart = (item) => {
@@ -55,10 +57,12 @@ function App() {
           }
         />
 
-        <Route path="/Admin" element={<Admin />} />
+        {/* <Route path="/Admin" element={<Admin />} /> */}
 
         <Route path="/Register" element={<Register />} />
         <Route path="/login" element={<Login setIsLoggedIn={setIsLoggedIn} setRefemail={setRefemail}/>} />
+        <Route path="/admin" element={<Adlogin setIsAdminLoggedIn={setIsAdminLoggedIn} setRefemail={setRefemail}/>} />
+        
         <Route
           path="/profile"
           element={
@@ -67,12 +71,13 @@ function App() {
             </PrivateRoute>
           }
         />
+       
         <Route
-          path="/Admin"
+          path="/dashboard"
           element={
-            <PrivateRoute isLoggedIn={isLoggedIn}>
-              <Admin  />
-            </PrivateRoute>
+            <Privateadmin isAdminLoggedIn={isAdminLoggedIn}>
+              <Dashboard refemail={refemail} />
+            </Privateadmin>
           }
         />
       </Routes>
